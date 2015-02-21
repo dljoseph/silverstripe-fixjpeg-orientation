@@ -1,0 +1,23 @@
+{
+    "name": "thisisbd/silverstripe-fixjpeg-orientation",
+    "description": "SilverStripe Fix JPEG Orientation Module. Ensures that JPEG images uploaded from a mobile are rotated and saved upright according their orientation value for consistent viewing when displayed on a web page.",
+    "type": "silverstripe-module",
+    "homepage": "http://github.com/thisisbd/silverstripe-fixjpeg-orientation",
+    "keywords": [
+        "silverstripe","jpeg rotation","exif orientation","mobile images","jpeg orientation","fix jpeg orientation","fix image orientation"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {"name": "Darren-Lee Joseph","email": "darrenleejoseph@gmail.com"}
+    ],
+    "support": {
+        "issues": "http://github.com/thisisbd/silverstripe-fixjpeg-orientation/issues"
+    },
+    "require": {
+        "silverstripe/cms": "~3.1",
+        "silverstripe/framework": "~3.1"
+    },
+    "extra": {
+        "installer-name": "fixjpeg-orientation"
+    }
+}
