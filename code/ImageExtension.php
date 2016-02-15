@@ -20,7 +20,11 @@ class FixJPEGOrientationImageExtension extends DataExtension {
 
         //Read the JPEG image Exif data to get the Orientation value
         $exif = exif_read_data($imagePath);
-        if(empty($exif['Orientation'])) return;
+        $orientation = @$exif['IFD0']['Orientation'];
+        if (!$orientation) {
+            $orientation = @$exif['Orientation'];
+        }
+        if(!$orientation) return;
 
 
         //Create a new image from file
@@ -30,7 +34,7 @@ class FixJPEGOrientationImageExtension extends DataExtension {
         //Modify according to Orientation
         //Replace JPEG at source, thus no other complexities regarding renaming, etc.
         //Note: Replacing an image this way strips any Exif data from the image
-        switch ($exif['Orientation']) {
+        switch ($orientation) {
             case 3 :
                 $modifiedImage = imagerotate($source, 180, 0);
                 imagejpeg($modifiedImage, $imagePath, 100);  //save output to file system at full quality
